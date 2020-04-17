@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) Linear time O(n) because the function grows as the input increases n times
 
 
-b)
+b) Cuadratic time O(n^2) because its performance is directly proportional to the square of the size of the input data set.  
 
 
-c)
+c) Linear time O(n)  because its performance will grow linearly and in direct proportion to the size of the input data set.
 
 ## Exercise II
 
