@@ -21,6 +21,5 @@ c) Linear time O(n)  because its performance will grow linearly and in direct pr
 - If the egg does not break we Know the lethal floor (f) has to be higher
     - Repeat the step to split the floor amount in half and continue
 
-I think this solution run time will grow linearly and in direct proportion to the size of the input, in our case the amount of floor. Thus the 
-Time complexity will be linear time O(n) 
+I think since I will probably have to loop and reduce the input in half every time I think the time complexity will be faster, I think it is O(log n) thus having a logaritmic time complexity.
 
