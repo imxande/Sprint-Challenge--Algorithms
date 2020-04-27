@@ -92,12 +92,46 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def stop_playing_with_the_ligth(self):
+        print("Robot out of battery please recharge!")
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # While our Robot can move to the right, he will do the following commands
+        while self.can_move_right():
+
+            # Even though we might not have anything in the hand we want to hold the item infront of us(I mean the robot)
+            self.swap_item()
+
+            # We need to keep moving to compare 
+            while self.can_move_right():
+                # this is the move to the rigth command
+                self.move_right()
+
+                # if held item is greater then the one in front of him, then put it down and get the one in front of him.
+                if self.compare_item() == 1:
+                    self.swap_item()  # this is the swap command
+
+            # We need a way to put the swapped item in the right position 
+            while self.compare_item() != None:
+                self.move_left()    # move to the left command to go left one
+                
+            self.swap_item()        # swap item at hand in the right position 
+            self.move_right()       # again move to the right to advance
+
+            # playing with the robots light
+            self.set_light_on()     
+            self.set_light_off()
+            self.set_light_on()     
+            self.set_light_off() 
+            self.set_light_on()     
+            self.set_light_off() 
+            self.set_light_on()     
+            self.set_light_off()
+            self.stop_playing_with_the_ligth()
+
 
 
 if __name__ == "__main__":
@@ -107,6 +141,9 @@ if __name__ == "__main__":
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
-
+    
     robot.sort()
     print(robot._list)
+
+    length = len(l)
+    print("The length of the list is: " + str(length))
